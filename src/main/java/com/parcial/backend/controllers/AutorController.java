@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/autores")
 public class AutorController extends BaseControllerImpl<Autor,AutorServiceImpl>{
-    @GetMapping("/searchJPQLnombrado")
+    @GetMapping("/search")
     public ResponseEntity<?> searchNativo(@RequestParam String filtro){
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.searchJPQLnombrado(filtro));
@@ -21,7 +21,7 @@ public class AutorController extends BaseControllerImpl<Autor,AutorServiceImpl>{
         }
     }
 
-    @GetMapping("/searchJPQLnombradoPaged")
+    @GetMapping("/searchPaged")
     public ResponseEntity<?> searchNativo(@RequestParam String filtro, Pageable pageable){
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.searchJPQLnombrado(filtro, pageable));
